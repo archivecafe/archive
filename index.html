@@ -1,256 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Archive Café</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    /* Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Gloock&display=swap');
+<meta charset="UTF-8">
+<title>Archive Café — Order</title>
 
-    body {
-      margin:0;
-      font-family:'Gloock', serif;
-      background:#F5F2EB;
-      color:#5B3B1C;
-      text-align:center;
-    }
+<style>
 
-    /* Header / Logo / Hero */
-    header {
-      padding:80px 20px;
-      background:#E8E1D6 url('https://i.imgur.com/6bVyywQ.png') no-repeat center top; /* Optional parchment texture */
-      background-size: cover;
-      position: relative;
-      overflow:hidden;
-    }
+body{
+font-family: Georgia, serif;
+background:#F5F2EB;
+color:#5B3B1C;
+margin:0;
+padding:0;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
 
-    .logo-circle {
-      width:140px;
-      height:140px;
-      border-radius:50%;
-      border:6px solid #8B1E2D;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-family:'Playfair Display', serif;
-      font-size:20px;
-      font-weight:bold;
-      color:#5B3B1C;
-      text-transform:uppercase;
-      margin-bottom:20px;
-      background:#F5F2EB;
-      box-shadow:4px 4px 10px rgba(0,0,0,0.2);
-    }
+.container{
+background:white;
+padding:40px;
+width:420px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
 
-    h1 {
-      font-family:'Playfair Display', serif;
-      font-size:48px;
-      margin:10px 0;
-      letter-spacing:3px;
-      color:#5B3B1C;
-    }
+h1{
+text-align:center;
+margin-bottom:5px;
+}
 
-    .tagline {
-      font-size:18px;
-      color:#7A5630;
-      margin-bottom:30px;
-    }
+.subtitle{
+text-align:center;
+color:#8B1E2D;
+font-size:14px;
+margin-bottom:25px;
+}
 
-    /* Wax Seal Buttons */
-    .wax-button {
-      background:#8B1E2D;
-      color:#F5F2EB;
-      font-family:'Playfair Display', serif;
-      font-weight:bold;
-      text-transform:uppercase;
-      border:3px solid #5B3B1C;
-      border-radius:50%;
-      width:140px;
-      height:140px;
-      line-height:140px;
-      font-size:16px;
-      text-align:center;
-      box-shadow:4px 4px 12px rgba(0,0,0,0.3);
-      cursor:pointer;
-      transition: transform 0.2s;
-      margin:20px auto;
-    }
+label{
+display:block;
+margin-top:15px;
+font-size:14px;
+}
 
-    .wax-button:hover {
-      transform: scale(1.1) rotate(-2deg);
-    }
+input, select, textarea{
+width:100%;
+padding:10px;
+margin-top:5px;
+border:1px solid #ddd;
+border-radius:6px;
+font-family:inherit;
+}
 
-    /* Sections */
-    section {
-      padding:60px 20px;
-      max-width:800px;
-      margin:auto;
-    }
+button{
+margin-top:25px;
+width:100%;
+padding:12px;
+border:none;
+background:#8B1E2D;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
 
-    h2 {
-      font-family:'Playfair Display', serif;
-      font-size:32px;
-      margin-bottom:25px;
-      color:#5B3B1C;
-      border-bottom:2px solid #7A5630;
-      display:inline-block;
-      padding-bottom:5px;
-    }
+button:hover{
+background:#6e1624;
+}
 
-    /* Menu Cards / Embossed effect */
-    .menu-card {
-      background:#E8E1D6;
-      padding:20px 30px;
-      border-radius:8px;
-      margin:15px auto;
-      text-align:left;
-      max-width:500px;
-      box-shadow: 4px 4px 8px rgba(0,0,0,0.15), inset -2px -2px 5px rgba(255,255,255,0.3);
-    }
+.footer{
+text-align:center;
+margin-top:20px;
+font-size:12px;
+color:#777;
+}
 
-    .menu-card h3 {
-      font-family:'Playfair Display', serif;
-      margin:0;
-      color:#8B1E2D;
-    }
-
-    .menu-card p {
-      margin:5px 0 0 0;
-      font-size:16px;
-      color:#5B3B1C;
-    }
-
-    /* Boxes */
-    .box {
-      background:#E8E1D6;
-      padding:30px;
-      border-radius:8px;
-      margin-top:20px;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-    }
-
-    /* Forms */
-    input, textarea, select {
-      width:90%;
-      padding:10px;
-      margin:5px 0 15px 0;
-      border:1px solid #7A5630;
-      border-radius:6px;
-      font-family:'Gloock', serif;
-      font-size:16px;
-    }
-
-    input:focus, textarea:focus, select:focus {
-      outline:none;
-      border-color:#8B1E2D;
-    }
-
-    footer {
-      padding:40px;
-      font-size:14px;
-      color:#7A5630;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo-circle">Archive Café</div>
-  <h1>ARCHIVE CAFÉ</h1>
-  <p class="tagline">Brownies, Bites & Vibes in Dubai</p>
-  <button class="wax-button" onclick="location.href='https://instagram.com/archivecafe.ae'">Order Now</button>
-</header>
+<div class="container">
 
-<section>
-  <h2>Archive Files</h2>
-  <div class="menu-card">
-    <h3>File 001 — Belgian Chocolate Reserve</h3>
-    <p>Rich, decadent dark chocolate brownie preserved in our archives.</p>
-  </div>
-  <div class="menu-card">
-    <h3>File 002 — Nutella Archive Edition</h3>
-    <p>Hazelnut chocolate brownie with a creamy Nutella center.</p>
-  </div>
-  <div class="menu-card">
-    <h3>File 003 — Sea Salt Chocolate Collection</h3>
-    <p>Sweet meets salty in this chocolate masterpiece.</p>
-  </div>
-  <div class="menu-card">
-    <h3>File 004 — Kinder Pieces Brownie</h3>
-    <p>Classic chocolate brownie with Kinder chocolate chunks.</p>
-  </div>
-  <div class="menu-card">
-    <h3>File 005 — Pistachio Edition</h3>
-    <p>Premium pistachio topped brownie for connoisseurs (+3 AED).</p>
-  </div>
-</section>
+<h1>Archive Café</h1>
+<div class="subtitle">Place an Archive Order</div>
 
-<section>
-  <h2>Archive Desserts</h2>
-  <div class="menu-card">
-    <h3>Warm Brownie + Ice Cream</h3>
-    <p>Vanilla — 35 AED | Chocolate — 35 AED</p>
-  </div>
-</section>
+<form action="https://formspree.io/f/xwvrqevg" method="POST">
 
-<section>
-  <h2>Archive Trays</h2>
-  <div class="menu-card">
-    <p>Half Tray — 45 AED | Full Tray — 75 AED</p>
-  </div>
-</section>
+<label>Name</label>
+<input type="text" name="name" required>
 
-<section>
-  <div class="box">
-    <h2>Pickup</h2>
-    Al Warqa 2 – Dubai<br>
-    Order 1 hour in advance<br><br>
-    يرجى الطلب قبل ساعة
-  </div>
-</section>
+<label>Phone Number</label>
+<input type="text" name="phone" required>
 
-<section>
-  <div class="box">
-    <h2>Delivery</h2>
-    Across UAE — Order 24 hours in advance<br><br>
-    يرجى الطلب قبل 24 ساعة
-  </div>
-</section>
+<label>Select Your Brownie</label>
+<select name="flavor" required>
 
-<section>
-  <h2>Order Your Archive Brownies</h2>
-  <div class="box">
-    <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
-      <label for="name">Name</label><br>
-      <input type="text" id="name" name="name" required><br>
+<option value="Belgian Chocolate">
+Belgian Chocolate — Archive Collection
+</option>
 
-      <label for="email">Email</label><br>
-      <input type="email" id="email" name="email" required><br>
+<option value="Nutella">
+Nutella — Archive Edition
+</option>
 
-      <label for="phone">Phone</label><br>
-      <input type="tel" id="phone" name="phone" required><br>
+<option value="Sea Salt Chocolate">
+Sea Salt Chocolate — Signature Archive
+</option>
 
-      <label for="order">Order Details</label><br>
-      <textarea id="order" name="order" required></textarea><br>
+<option value="Kinder Pieces">
+Kinder Pieces — Special Archive
+</option>
 
-      <label for="pickup">Pickup or Delivery</label><br>
-      <select id="pickup" name="pickup">
-        <option value="pickup">Pickup</option>
-        <option value="delivery">Delivery</option>
-      </select><br>
+<option value="Pistachio">
+Pistachio — Limited Archive (+3 AED)
+</option>
 
-      <label for="date">Date / Time</label><br>
-      <input type="text" id="date" name="date" placeholder="DD/MM/YYYY HH:MM"><br>
+<option value="Mix">
+Mix — Curated Archive (+3 AED)
+</option>
 
-      <button type="submit" class="wax-button">Submit Order</button>
-    </form>
-  </div>
-</section>
+</select>
 
-<footer>
-  Instagram: @archivecafe.ae
-</footer>
+<label>Quantity</label>
+<input type="number" name="quantity" min="1" required>
+
+<label>Pickup or Delivery</label>
+<select name="method">
+<option value="Pickup">Pickup</option>
+<option value="Delivery">Delivery</option>
+</select>
+
+<label>Notes</label>
+<textarea name="notes" rows="3"></textarea>
+
+<button type="submit">Archive My Box</button>
+
+</form>
+
+<div class="footer">
+Archive Café • Freshly Archived Desserts
+</div>
+
+</div>
 
 </body>
 </html>
